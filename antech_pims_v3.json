@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "193fdc20-b4a8-44f9-a711-aa54c81dd7de",
+		"name": "V3 Pims",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ClinicID: \"1789\", UserName: \"cmcgee\", Password: \"tinydog1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/Users/login",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"Users",
+						"login"
+					]
+				},
+				"description": "Authentication and parameters needed for login."
+			},
+			"response": []
+		},
+		{
+			"name": "PDF",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/LabOrders/PDFPIMS?accessToken=A57B7795B22B00C2E0530AC864C000C2&ClinicAccessionID=1789-ABC8833139&isView=0",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"LabOrders",
+						"PDFPIMS"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A57B7795B22B00C2E0530AC864C000C2"
+						},
+						{
+							"key": "ClinicAccessionID",
+							"value": "1789-ABC8833139"
+						},
+						{
+							"key": "isView",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Downloading PDF"
+			},
+			"response": []
+		},
+		{
+			"name": "Order placement -Set up order API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"AccessToken\":\"A5B42A9DEFB80006E0530AC864C00006\",\"LabID\":1,\"ClinicID\":\"1789\",\"ClinicAccessionID\":\"1789-ABC3194288\",\"ClientFirstName\":\"EDWIN\",\"ClientLastName\":\"ARIAS\",\"ClientAddress\":\"39 Aliso rigdeloop\",\"ClientCity\":\"Irvine\",\"ClientZip\":\"92691\",\"ClientState\":\"CA\",\"ClientCountry\":\"US\",\"ClientCell\":\"9499994444\",\"ClientEmail\":\"amin@client.com\",\"ClientID\":1233,\"DoctorFirstName\":\"AMIN\",\"DoctorLastName\":\"Parva\",\"DoctorID\":15,\"DoctorCell\":\"9499224584\",\"DoctorEmail\":\"Parva.amin@yahoo.com\",\"Order_ID\":null,\"PetID\":1,\"PetName\":\"BRENDY\",\"PetAge\":16,\"PetAgeUnits\":\"Y\",\"PetSex\":\"M\",\"PetWeight\":\"70\",\"PetWeightUnits\":\"kgs\",\"BreedID\":160,\"SpeciesID\":41}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/External/SetupOrder?accessToken=A5B42A9DEFB80006E0530AC864C00006",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"External",
+						"SetupOrder"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5B42A9DEFB80006E0530AC864C00006"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Placement - Get Order",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"AccessToken\": \"A5A3697A60630012E0530AC864C00012\",\n    \"LabID\": 1,\n    \"ClinicID\": \"1789\",\n    \"ClinicAccessionID\": \"1789-ABC5991415\",\n    \"ClientFirstName\": \"EDWIN\",\n    \"ClientLastName\": \"ARIAS\",\n    \"ClientAddress\": \"39 Aliso rigdeloop\",\n    \"ClientCity\": \"Irvine\",\n    \"ClientZip\": \"92691\",\n    \"ClientState\": \"CA\",\n    \"ClientCountry\": \"US\",\n    \"ClientCell\": \"9499994444\",\n    \"ClientEmail\": \"amin@client.com\",\n    \"ClientID\": 1233,\n    \"DoctorFirstName\": \"AMIN\",\n    \"DoctorLastName\": \"Parva\",\n    \"DoctorID\": 15,\n    \"DoctorCell\": \"9499224584\",\n    \"DoctorEmail\": \"Parva.amin@yahoo.com\",\n    \"Order_ID\": null,\n    \"PetID\": 1,\n    \"PetName\": \"BRENDY\",\n    \"PetAge\": 16,\n    \"PetAgeUnits\": \"Y\",\n    \"PetSex\": \"M\",\n    \"PetWeight\": \"70\",\n    \"PetWeightUnits\": \"kgs\",\n    \"BreedID\": 160,\n    \"SpeciesID\": 41\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://pims-qa.antechdiagnostics.com/views/order.html?accessToken=A57B7795B22B00C2E0530AC864C000C2&ClinicAccessionID=1789-ABC2384998",
+					"protocol": "http",
+					"host": [
+						"pims-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"views",
+						"order.html"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A57B7795B22B00C2E0530AC864C000C2"
+						},
+						{
+							"key": "ClinicAccessionID",
+							"value": "1789-ABC2384998"
+						}
+					]
+				},
+				"description": "Used to place a lab order."
+			},
+			"response": []
+		},
+		{
+			"name": "Order Placement - Test guide",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/Tests?accessToken=A5B42A9DEFB80006E0530AC864C00006&orderCode=&labID=1&searchType=6",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"Tests"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5B42A9DEFB80006E0530AC864C00006"
+						},
+						{
+							"key": "orderCode",
+							"value": ""
+						},
+						{
+							"key": "labID",
+							"value": "1"
+						},
+						{
+							"key": "searchType",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order Status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/External/GetStatus?accessToken=A5A3697A60630012E0530AC864C00012&ClinicAccessionID=1789-ABC8833139&overrideAck=false&serviceType=labOrder",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"External",
+						"GetStatus"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A3697A60630012E0530AC864C00012"
+						},
+						{
+							"key": "ClinicAccessionID",
+							"value": "1789-ABC8833139"
+						},
+						{
+							"key": "overrideAck",
+							"value": "false"
+						},
+						{
+							"key": "serviceType",
+							"value": "labOrder"
+						}
+					]
+				},
+				"description": "Retrieve unacknowledged Order Result status for a clinic or group created over the last 14 days."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Result Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/External/GetStatus?accessToken=A5A3697A60630012E0530AC864C00012&Lab_Accession_ID=IRQB00448258&OverrideAck=true&ServiceType=labResult",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"External",
+						"GetStatus"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A3697A60630012E0530AC864C00012"
+						},
+						{
+							"key": "Lab_Accession_ID",
+							"value": "IRQB00448258"
+						},
+						{
+							"key": "OverrideAck",
+							"value": "true"
+						},
+						{
+							"key": "ServiceType",
+							"value": "labResult"
+						}
+					]
+				},
+				"description": "Retrieve unacknowledged Result statuses for a clinic or group created over the last 14 days."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Results",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/LabResults/DetailsHt?accessToken=A5A3697A60630012E0530AC864C00012&LabAccessionID=IRQB00448258&ClinicAccessionID=",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"LabResults",
+						"DetailsHt"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A3697A60630012E0530AC864C00012"
+						},
+						{
+							"key": "LabAccessionID",
+							"value": "IRQB00448258"
+						},
+						{
+							"key": "ClinicAccessionID",
+							"value": ""
+						}
+					]
+				},
+				"description": "Web page to review patient results."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Species",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/Pets/Species?accessToken=A5A43248CF070098E0530AC864C00098",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"Pets",
+						"Species"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A43248CF070098E0530AC864C00098"
+						}
+					]
+				},
+				"description": "Retrieve species list."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Breeds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/Pets/Breeds?accessToken=A5A43248CF070098E0530AC864C00098",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"Pets",
+						"Breeds"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A43248CF070098E0530AC864C00098"
+						}
+					]
+				},
+				"description": "Retrieve breeds list."
+			},
+			"response": []
+		},
+		{
+			"name": "Get List of Services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/External/ServiceList?accessToken=A5A43248CF070098E0530AC864C00098",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"External",
+						"ServiceList"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A43248CF070098E0530AC864C00098"
+						}
+					]
+				},
+				"description": "Retrieve list of tests available to order for clinic."
+			},
+			"response": []
+		},
+		{
+			"name": "Get list of Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/External/CategoryList?accessToken=A5A4403308270076E0530AC864C00076",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"External",
+						"CategoryList"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A4403308270076E0530AC864C00076"
+						}
+					]
+				},
+				"description": "Retrieve list of test categories available to order for clinic."
+			},
+			"response": []
+		},
+		{
+			"name": "Acknowledge Orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ServiceType\":\"labOrder\",\"ClinicAccessionIds\":[\"1789-ABC6621340\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/External/AckStatus?accessToken=A5A4A934976D0068E0530AC864C00068",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"External",
+						"AckStatus"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A4A934976D0068E0530AC864C00068"
+						}
+					]
+				},
+				"description": "Acknowledge receipt of Order status for clinic or group."
+			},
+			"response": []
+		},
+		{
+			"name": "Acknowledge Results",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ServiceType: \"labResult\", LabAccessionsIds: [\"1789-ABC6621340\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://onlineapi-qa.antechdiagnostics.com/api/v1.1/External/AckStatus?accessToken=A5A4A934976D0068E0530AC864C00068",
+					"protocol": "https",
+					"host": [
+						"onlineapi-qa",
+						"antechdiagnostics",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.1",
+						"External",
+						"AckStatus"
+					],
+					"query": [
+						{
+							"key": "accessToken",
+							"value": "A5A4A934976D0068E0530AC864C00068"
+						}
+					]
+				},
+				"description": "Acknowledge receipt of Test Result status for clinic or group."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
